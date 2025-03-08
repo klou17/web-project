@@ -8,8 +8,8 @@ export const Nav = () => {
         <div className="flex gap-10">
           <Link href={"/"}>Home</Link>
           <Link href={"/Concursantes"}>Concursantes</Link>
-          <Link href={"/Member"}>Member</Link>
-          <Link href={"/Public"}>Public</Link>
+          {/* <Link href={"/Member"}>Member</Link>
+          <Link href={"/Public"}>Public</Link> */}
         </div>
       </nav>
     </header>
