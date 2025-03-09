@@ -24,12 +24,7 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
-
-const formSchema = z.object({
-  name: z.string().min(2).max(50),
-  email: z.string().min(2).max(50),
-  password: z.string().min(2).max(50),
-});
+import { formSchema } from "@/lib/auth-schema";
 
 const SignUp = () => {
   const form = useForm<z.infer<typeof formSchema>>({
@@ -100,7 +95,9 @@ const SignUp = () => {
                 </FormItem>
               )}
             />
-            <Button type="submit">Submit</Button>
+            <Button className="w-full" type="submit">
+              Submit
+            </Button>
           </form>
         </Form>
       </CardContent>
