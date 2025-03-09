@@ -1,28 +1,16 @@
-import {
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-import { Input } from "@/components/ui/input";
-import { Control, FieldValues } from "react-hook-form";
+import { FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form'
+import { Input } from '@/components/ui/input'
+import type { Control, FieldValues, Path } from 'react-hook-form'
 
-interface Props {
-  control: Control<FieldValues, any>;
-  name: string;
-  label: string;
-  placeholder?: string;
-  inputType?: string;
+interface Props<T extends FieldValues> {
+  control: Control<T>
+  name: Path<T>
+  label: string
+  placeholder?: string
+  inputType?: string
 }
 
-export const AuthFormField = ({
-  control,
-  name,
-  label,
-  placeholder,
-  inputType,
-}: Props) => {
+export const AuthFormField = <T extends FieldValues>({ control, name, label, placeholder, inputType }: Props<T>) => {
   return (
     <FormField
       control={control}
@@ -31,15 +19,11 @@ export const AuthFormField = ({
         <FormItem>
           <FormLabel>{label}</FormLabel>
           <FormControl>
-            <Input
-              type={inputType || "text"}
-              placeholder={placeholder}
-              {...field}
-            />
+            <Input type={inputType || 'text'} placeholder={placeholder} {...field} />
           </FormControl>
           <FormMessage />
         </FormItem>
       )}
     />
-  );
-};
+  )
+}
