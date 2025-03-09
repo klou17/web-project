@@ -5,6 +5,9 @@ import { Avatar, AvatarImage } from '@/components/ui/avatar'
 import { Facebook, Twitter, Instagram } from 'lucide-react'
 import Link from 'next/link'
 import type { Contestant } from '@/core/candidates/domain/contestant'
+import { useContext } from 'react'
+import { ModalContext } from '@/components/shared/modal/providers'
+import { Button } from '@/components/ui/button'
 
 const contestants: Contestant[] = [
   {
@@ -22,6 +25,8 @@ const contestants: Contestant[] = [
 ]
 
 const Concursantes = () => {
+  const { setShowSignInModal } = useContext(ModalContext)
+
   return (
     <div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4'}>
       {contestants.map(contestant => (
@@ -34,6 +39,9 @@ const Concursantes = () => {
           </CardHeader>
           <CardContent>
             <p className={'text-sm text-muted-foreground'}>{contestant.description}</p>
+            <Button onClick={() => setShowSignInModal(true)} variant={'outline'}>
+              modal
+            </Button>
           </CardContent>
           <CardFooter className={'flex gap-3'}>
             {contestant.social.facebook && (
