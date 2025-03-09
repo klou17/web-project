@@ -3,7 +3,7 @@ const Ajustes = () => {
     <div>
       <h1>Ajustes</h1>
     </div>
-  );
-};
+  )
+}
 
-export default Ajustes;
+export default Ajustes
