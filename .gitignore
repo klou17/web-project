@@ -17,6 +17,8 @@
 /.next/
 /out/
 
+# generated components fron shadcn
+/components/ui
 # production
 /build
 
