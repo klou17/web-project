@@ -9,9 +9,5 @@
   "tabWidth": 2,
   "trailingComma": "all",
   "useTabs": false,
-  "jsxSingleQuote": true,
-  "importOrder": ["^(?!@/|\\./).*$', '^@/.*$', '^\\./.*$"],
-  "importOrderSortSpecifiers": true,
-  "importOrderGroupNamespaceSpecifiers": true,
-  "importOrderCaseInsensitive": true
+  "jsxSingleQuote": true
 }
