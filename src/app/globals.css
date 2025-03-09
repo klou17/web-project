@@ -3,14 +3,6 @@
 @plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
-@layer base {
-  h1 {
-    @apply font-bold text-3xl;
-  }
-  a {
-    @apply underline font-bold;
-  }
-}
 
 :root {
   --background: oklch(1 0 0);
