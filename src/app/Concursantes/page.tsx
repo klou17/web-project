@@ -6,8 +6,8 @@ import Link from 'next/link'
 import type { Contestant } from '@/core/candidates/domain/contestant'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import Image from 'next/image'
 import { VoteModal } from '@/app/concursantes/_components/VoteModal'
+import { ImageSrc } from '@/components/Image'
 
 const contestants: Contestant[] = [
   {
@@ -34,7 +34,11 @@ const Concursantes = () => {
       {contestants.map(contestant => (
         <Card key={contestant.id} className={'shadow-md rounded-xl overflow-hidden'}>
           <CardHeader className={'flex items-center gap-4'}>
-            <Image src={contestant?.photo ?? ''} alt={contestant?.name ?? ''} className={'w-full h-auto rounded-lg'} />
+            <ImageSrc
+              src={contestant?.photo ?? ''}
+              alt={contestant?.name ?? ''}
+              className={'w-full h-auto rounded-lg'}
+            />
 
             <CardTitle className={'text-lg font-semibold'}>{contestant.name}</CardTitle>
           </CardHeader>

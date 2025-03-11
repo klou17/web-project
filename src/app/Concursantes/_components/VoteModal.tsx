@@ -2,7 +2,7 @@ import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import type { Contestant } from '@/core/candidates/domain/contestant'
 import { Slot } from '@radix-ui/react-slot'
-import Image from 'next/image'
+import { ImageSrc } from '@/components/Image'
 
 interface Props {
   contestant: Contestant | null
@@ -15,7 +15,7 @@ export const VoteModal = ({ contestant, setContestant }: Props) => {
   return (
     <Dialog open={contestant !== null} onOpenChange={() => setContestant(null)}>
       <DialogContent className={'grid grid-cols-2 gap-4 items-center'}>
-        <Image src={contestant.photo} alt={contestant.name} className={' h-auto rounded-lg'} />
+        <ImageSrc src={contestant?.photo ?? ''} alt={contestant?.name ?? ''} className={'w-full h-auto rounded-lg'} />
 
         <div className={'grid gap-4 items-center content-center'}>
           <DialogHeader>
