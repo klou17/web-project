@@ -3,7 +3,7 @@
 import { useForm } from '@/hooks/useForm'
 
 import { formSchema } from '@/lib/auth-schema'
-import { AuthCard } from '@/components/auth/card'
+import { AuthCard } from '@/app/(auth)/_components/card'
 
 const SignUp = () => {
   const form = useForm({

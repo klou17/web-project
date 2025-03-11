@@ -1,6 +1,6 @@
 'use client'
 
-import { AuthCard } from '@/components/auth/card'
+import { AuthCard } from '@/app/(auth)/_components/card'
 import { signInFormSchema } from '@/lib/auth-schema'
 import { useForm } from '@/hooks/useForm'
 

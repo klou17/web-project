@@ -6,8 +6,8 @@ import Link from 'next/link'
 import type { Contestant } from '@/core/candidates/domain/contestant'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
-import { VoteModal } from './_components/VoteModal'
 import Image from 'next/image'
+import { VoteModal } from '@/app/concursantes/_components/VoteModal'
 
 const contestants: Contestant[] = [
   {
