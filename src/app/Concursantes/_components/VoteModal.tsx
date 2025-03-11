@@ -27,7 +27,7 @@ export const VoteModal = ({ contestant, setContestant }: Props) => {
       <DialogContent className={'grid grid-cols-2 gap-4 items-center'}>
         <ImageSrc src={contestant?.photo ?? ''} alt={contestant?.name ?? ''} className={'w-full h-auto rounded-lg'} />
 
-        <div className='grid gap-4 items-center content-center '>
+        <div className={"grid gap-4 items-center content-center "}>
           {isSuccess ? (
             <div className={'grid items-center gap-2'}>
               <BadgeCheck className={'w-full h-15'} color={'green'} />
@@ -44,11 +44,11 @@ export const VoteModal = ({ contestant, setContestant }: Props) => {
                 <DialogTitle>¿Confirmas tu voto para {contestant.name}?</DialogTitle>
               </DialogHeader>
 
-              <Button variant='destructive' onClick={() => setIsSuccess(true)}>
+              <Button variant={"destructive"} onClick={() => setIsSuccess(true)}>
                 Confirmar voto
               </Button>
 
-              <Button variant='ghost' onClick={() => setContestant(null)}>
+              <Button variant={"ghost"} onClick={() => setContestant(null)}>
                 Cancelar
               </Button>
             </>
