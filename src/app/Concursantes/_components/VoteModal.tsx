@@ -9,7 +9,6 @@ interface Props {
   setContestant: (contestant: Contestant | null) => void
 }
 
- 
 export const VoteModal = ({ contestant, setContestant }: Props) => {
   if (!contestant) return <Slot></Slot>
 
