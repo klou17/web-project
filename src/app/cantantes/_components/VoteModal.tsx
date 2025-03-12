@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
-import type { Contestant } from '@/core/candidates/domain/contestant'
+import type { Singer } from '@/core/singers/domain/contestant'
 import { Slot } from '@radix-ui/react-slot'
 import { ImageSrc } from '@/components/Image'
 import { useState } from 'react'
@@ -8,24 +8,24 @@ import { DialogDescription } from '@radix-ui/react-dialog'
 import { BadgeCheck } from 'lucide-react'
 
 interface Props {
-  contestant: Contestant | null
-  setContestant: (contestant: Contestant | null) => void
+  singer: Singer | null
+  setSinger: (singer: Singer | null) => void
 }
 
-export const VoteModal = ({ contestant, setContestant }: Props) => {
+export const VoteModal = ({ singer, setSinger }: Props) => {
   const [isSuccess, setIsSuccess] = useState(false)
 
-  if (!contestant) return <Slot />
+  if (!singer) return <Slot />
 
   return (
     <Dialog
-      open={contestant !== null}
+      open={singer !== null}
       onOpenChange={() => {
-        setContestant(null)
+        setSinger(null)
         setIsSuccess(false)
       }}>
       <DialogContent className={'grid grid-cols-2 gap-4 items-center'}>
-        <ImageSrc src={contestant?.photo ?? ''} alt={contestant?.name ?? ''} className={'w-full h-auto rounded-lg'} />
+        <ImageSrc src={singer.photo} alt={singer.firstName} className={'w-full h-auto rounded-lg'} />
 
         <div className={'grid gap-4 items-center content-center'}>
           {isSuccess ? (
@@ -41,14 +41,14 @@ export const VoteModal = ({ contestant, setContestant }: Props) => {
           ) : (
             <>
               <DialogHeader>
-                <DialogTitle>¿Confirmas tu voto para {contestant.name}?</DialogTitle>
+                <DialogTitle>¿Confirmas tu voto para {singer.firstName}?</DialogTitle>
               </DialogHeader>
 
               <Button variant={'destructive'} onClick={() => setIsSuccess(true)}>
                 Confirmar voto
               </Button>
 
-              <Button variant={'ghost'} onClick={() => setContestant(null)}>
+              <Button variant={'ghost'} onClick={() => setSinger(null)}>
                 Cancelar
               </Button>
             </>

@@ -26,7 +26,7 @@ export const Nav = () => {
         </Link>
 
         <div className={'hidden md:flex gap-4'}>
-          <Link href={'/concursantes'}>Concursantes</Link>
+          <Link href={'/cantantes'}>Cantantes</Link>
           <Link href={'/ajustes'}>Ajustes</Link>
         </div>
 
@@ -41,7 +41,7 @@ export const Nav = () => {
         className={`transition-all duration-300 overflow-hidden md:hidden flex flex-col items-center bg-white dark:bg-gray-900 shadow-md rounded-b-lg ${
           isOpen ? 'max-h-40 opacity-100 py-4' : 'max-h-0 opacity-0'
         }`}>
-        <Link href={'/concursantes'}>Concursantes</Link>
+        <Link href={'/cantantes'}>Cantantes</Link>
         <Link href={'/ajustes'}>Ajustes</Link>
       </div>
     </div>
