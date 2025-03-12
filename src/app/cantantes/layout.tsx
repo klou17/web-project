@@ -1,4 +1,4 @@
-export default function ContestantLayout({
+export default function CantantesLayout({
   children,
   modal,
 }: Readonly<{
