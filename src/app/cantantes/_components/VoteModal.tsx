@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button'
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from '@/components/ui/dialog'
-import type { Singer } from '@/core/singers/domain/contestant'
+import type { Singer } from '@/core/singers/domain/singer'
 import { Slot } from '@radix-ui/react-slot'
 import { ImageSrc } from '@/components/Image'
 import { useState } from 'react'
