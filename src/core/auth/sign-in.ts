@@ -1,4 +1,4 @@
-import { configuration } from "@/core/share/configuration"
+import { configuration } from '@/core/share/configuration'
 
 export async function signIn(email: string, password: string): Promise<void> {
   const headers = new Headers()
