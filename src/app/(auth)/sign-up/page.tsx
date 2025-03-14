@@ -4,8 +4,8 @@ import { useForm } from '@/hooks/useForm'
 
 import { formSchema } from '@/lib/auth-schema'
 import { AuthCard } from '@/app/(auth)/_components/card'
-import { sign_up } from '@/core/auth/sign-up'
-import { sign_in } from '@/core/auth/sign-in'
+import { signUp } from '@/core/auth/sign-up'
+import { signIn } from '@/core/auth/sign-in'
 
 const SignUp = () => {
   const form = useForm({
@@ -15,9 +15,9 @@ const SignUp = () => {
 
   const onSubmit = () => {
     const { name, email, password } = form.getValues()
-    sign_up(name, email, password)
+    signUp(name, email, password)
       .then(() => {
-        sign_in(email, password).then(() => location.assign('/cantantes'))
+        signIn(email, password).then(() => location.assign('/cantantes'))
       })
       .catch(() => {
         form.setError('email', { message: 'El email ya está en uso' }, { shouldFocus: false })

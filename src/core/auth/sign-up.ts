@@ -1,6 +1,6 @@
-import { configuration } from '../share/configuration'
+import { configuration } from '@/core/share/configuration'
 
-export async function sign_up(name: string, email: string, password: string): Promise<void> {
+export async function signUp(name: string, email: string, password: string): Promise<void> {
   const headers = new Headers()
   headers.append('Content-Type', 'application/json')
 

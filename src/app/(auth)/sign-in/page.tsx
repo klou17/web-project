@@ -3,7 +3,7 @@
 import { AuthCard } from '@/app/(auth)/_components/card'
 import { signInFormSchema } from '@/lib/auth-schema'
 import { useForm } from '@/hooks/useForm'
-import { sign_in } from '@/core/auth/sign-in'
+import { signIn } from '@/core/auth/sign-in'
 
 const SignIn = () => {
   const form = useForm({
@@ -13,7 +13,7 @@ const SignIn = () => {
 
   const onSubmit = () => {
     const { email, password } = form.getValues()
-    sign_in(email, password)
+    signIn(email, password)
       .then(() => {
         location.assign('/cantantes')
       })
