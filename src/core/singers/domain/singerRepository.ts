@@ -1,4 +1,4 @@
-import type { Singer } from './singer'
+import type { Singer } from '@/core/singers/domain/singer'
 
 export interface SingerRepository {
   getAllSingers: () => Promise<Singer[]>

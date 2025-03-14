@@ -3,7 +3,7 @@
 import { StatusHandler } from '@/components/StateHanlder'
 import { ImageSrc } from '@/components/Image'
 import { useParams } from 'next/navigation'
-import { useGetSinger } from '../hooks/useGetSinger'
+import { useGetSinger } from '@/app/cantantes/hooks/useGetSinger'
 
 const SingerDetail = () => {
   const { id } = useParams()
