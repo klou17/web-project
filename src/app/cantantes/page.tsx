@@ -2,7 +2,7 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Vote } from 'lucide-react'
-import type { Singer } from '@/core/singers/domain/contestant'
+import type { Singer } from '@/core/singers/domain/singer'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { VoteModal } from '@/app/cantantes/_components/VoteModal'

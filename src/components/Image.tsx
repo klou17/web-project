@@ -6,5 +6,5 @@ interface Props {
   className?: string
 }
 export const ImageSrc = ({ src, alt, className }: Props) => {
-  return <Image src={src} alt={alt} className={`${className} !relative`} layout={'fill'} loading={'lazy'} />
+  return <Image src={src} alt={alt} className={`${className} !relative`} loading={'lazy'} fill />
 }
