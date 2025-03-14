@@ -2,7 +2,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import { Form } from '@/components/ui/form'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
-import { AuthFormField } from './formField'
+import { AuthFormField } from '@/app/(auth)/_components/formField'
 import type { FieldValues, Path, UseFormReturn } from 'react-hook-form'
 
 interface Props<T extends FieldValues> {

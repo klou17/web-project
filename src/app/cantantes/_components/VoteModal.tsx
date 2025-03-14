@@ -5,7 +5,7 @@ import { Slot } from '@radix-ui/react-slot'
 import { ImageSrc } from '@/components/Image'
 import { useState } from 'react'
 import { DialogDescription } from '@radix-ui/react-dialog'
-import { BadgeCheck } from 'lucide-react'
+import { Icon } from '@/components/Icon/Icon'
 
 interface Props {
   singer: Singer | null
@@ -30,7 +30,7 @@ export const VoteModal = ({ singer, setSinger }: Props) => {
         <div className={'grid gap-4 items-center content-center'}>
           {isSuccess ? (
             <div className={'grid items-center gap-2'}>
-              <BadgeCheck className={'w-full h-15'} color={'green'} />
+              <Icon name={'BadgeCheck'} className={'w-full h-15'} color={'green'} />
               <DialogHeader>
                 <DialogTitle>¡Voto registrado con éxito!</DialogTitle>
               </DialogHeader>
