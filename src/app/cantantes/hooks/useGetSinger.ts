@@ -1,13 +1,13 @@
 import { HttpSingerRepository } from '@/core/singers/infrastructure/HttpSingerRepository'
-import { GetAllSingers } from '@/core/singers/useCases/getAllSingers'
+import { GetSinger } from '@/core/singers/useCases/getSinger'
 import { useQuery } from '@/hooks/useQuery'
 
 const singerRepository = new HttpSingerRepository()
-const getAllSingersUseCase = new GetAllSingers(singerRepository)
+const getSingersUseCase = new GetSinger(singerRepository)
 
-export const useGetAllSingers = () => {
+export const useGetSinger = (id: string) => {
   return useQuery({
-    queryFn: () => getAllSingersUseCase.execute(),
+    queryFn: () => getSingersUseCase.execute(id),
     key: ['getAllSingersUseCase'],
   })
 }

@@ -1,5 +1,5 @@
-import type { Singer } from '../domain/singer'
-import type { SingerRepository } from '../domain/singerRepository'
+import type { Singer } from '@/core/singers/domain/singer'
+import type { SingerRepository } from '@/core/singers/domain/singerRepository'
 
 export class GetAllSingers {
   constructor(private singerRepository: SingerRepository) {}
