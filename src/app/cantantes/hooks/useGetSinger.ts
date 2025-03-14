@@ -8,6 +8,6 @@ const getSingersUseCase = new GetSinger(singerRepository)
 export const useGetSinger = (id: string) => {
   return useQuery({
     queryFn: () => getSingersUseCase.execute(id),
-    key: ['getAllSingersUseCase'],
+    key: ['getAllSingersUseCase', id],
   })
 }

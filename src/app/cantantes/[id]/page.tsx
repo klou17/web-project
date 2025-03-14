@@ -1,7 +1,7 @@
 'use client'
 
 import { StatusHandler } from '@/components/StateHanlder'
-import Image from 'next/image'
+import { ImageSrc } from '@/components/Image'
 import { useParams } from 'next/navigation'
 import { useGetSinger } from '../hooks/useGetSinger'
 
@@ -15,11 +15,9 @@ const SingerDetail = () => {
       {singer && (
         <div className={'max-w-3xl mx-auto p-6 '}>
           <div className={'flex flex-col md:flex-row items-center md:items-start'}>
-            <Image
+            <ImageSrc
               src={singer.photo}
-              alt={singer.stageName}
-              width={200}
-              height={200}
+              alt={singer.firstName}
               className={'rounded-full shadow-lg mb-4 md:mb-0 md:mr-6'}
             />
             <div>
