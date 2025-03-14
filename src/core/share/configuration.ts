@@ -3,5 +3,5 @@ interface Configuration {
 }
 
 export const configuration = (): Configuration => ({
-  BASE_URL: process.env.EXPO_PUBLIC_BASE_URL ?? '',
+  BASE_URL: process.env.NEXT_PUBLIC_BASE_URL ?? '',
 })
