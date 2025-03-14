@@ -4,6 +4,8 @@ import { useForm } from '@/hooks/useForm'
 
 import { formSchema } from '@/lib/auth-schema'
 import { AuthCard } from '@/app/(auth)/_components/card'
+import { sign_up } from '@/core/auth/sign-up'
+import { sign_in } from '@/core/auth/sign-in'
 
 const SignUp = () => {
   const form = useForm({
@@ -11,16 +13,25 @@ const SignUp = () => {
     defaultValues: { name: '', email: '', password: '' },
   })
 
-  const onSubmit = () => {}
+  const onSubmit = () => {
+    const { name, email, password } = form.getValues()
+    sign_up(name, email, password)
+      .then(() => {
+        sign_in(email, password).then(() => location.assign('/cantantes'))
+      })
+      .catch(() => {
+        form.setError('email', { message: 'El email ya está en uso' }, { shouldFocus: false })
+      })
+  }
 
   return (
     <AuthCard
-      title={'Sign Up'}
-      description={'Create your account to get started'}
+      title={'Crear Cuenta'}
+      description={'Cree su cuenta antes de continuar'}
       form={form}
       onSubmit={onSubmit}
       fields={[
-        { name: 'name', label: 'Name', placeholder: 'John Doe' },
+        { name: 'name', label: 'Nombre', placeholder: 'John Doe' },
         {
           name: 'email',
           label: 'Email',
@@ -29,14 +40,15 @@ const SignUp = () => {
         },
         {
           name: 'password',
-          label: 'Password',
-          placeholder: 'Enter your password',
+          label: 'Contraseña',
+          placeholder: 'Inserte una contraseña',
           type: 'password',
         },
       ]}
-      footerText={'Already have an account?'}
+      footerText={'Ya tiene una cuenta?'}
       footerLink={'/sign-in'}
-      footerLinkText={'Sign in'}
+      footerLinkText={'Iniciar sesión'}
+      buttonText={'Crear Cuenta'}
     />
   )
 }

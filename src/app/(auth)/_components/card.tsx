@@ -14,6 +14,7 @@ interface Props<T extends FieldValues> {
   footerText?: string
   footerLink?: string
   footerLinkText?: string
+  buttonText?: string
 }
 
 export const AuthCard = <T extends FieldValues>({
@@ -25,6 +26,7 @@ export const AuthCard = <T extends FieldValues>({
   footerText,
   footerLink,
   footerLinkText,
+  buttonText,
 }: Props<T>) => {
   return (
     <Card className={'w-full max-w-md mx-auto'}>
@@ -46,7 +48,7 @@ export const AuthCard = <T extends FieldValues>({
               />
             ))}
             <Button className={'w-full'} type={'submit'}>
-              Submit
+              {buttonText ? buttonText : 'Submit'}
             </Button>
           </form>
         </Form>

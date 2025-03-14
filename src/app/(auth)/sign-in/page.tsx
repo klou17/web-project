@@ -3,6 +3,7 @@
 import { AuthCard } from '@/app/(auth)/_components/card'
 import { signInFormSchema } from '@/lib/auth-schema'
 import { useForm } from '@/hooks/useForm'
+import { sign_in } from '@/core/auth/sign-in'
 
 const SignIn = () => {
   const form = useForm({
@@ -10,12 +11,21 @@ const SignIn = () => {
     defaultValues: { email: '', password: '' },
   })
 
-  const onSubmit = () => {}
+  const onSubmit = () => {
+    const { email, password } = form.getValues()
+    sign_in(email, password)
+      .then(() => {
+        location.assign('/cantantes')
+      })
+      .catch(() => {
+        form.setError('password', { message: 'La contraseña es incorrecta' }, { shouldFocus: true })
+      })
+  }
 
   return (
     <AuthCard
-      title={'Sign In'}
-      description={'Welcome back! Please sign in to continue'}
+      title={'Iniciar Sesión'}
+      description={'Bienvenido de vuelta! Por favor, inicie sesión para continuar'}
       form={form}
       onSubmit={onSubmit}
       fields={[
@@ -27,14 +37,15 @@ const SignIn = () => {
         },
         {
           name: 'password',
-          label: 'Password',
-          placeholder: 'Enter your password',
+          label: 'Contraseña',
+          placeholder: 'Inserte su contrseña',
           type: 'password',
         },
       ]}
-      footerText={"Don't have an account yet?"}
+      footerText={'Aún no tiene una cuenta?'}
       footerLink={'/sign-up'}
-      footerLinkText={'Sign Up'}
+      footerLinkText={'Crear cuenta'}
+      buttonText={'Iniciar Sesión'}
     />
   )
 }
