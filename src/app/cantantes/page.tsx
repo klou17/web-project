@@ -35,7 +35,7 @@ const Cantantes = () => {
             </CardHeader>
             <CardContent className={'grid gap-4'}>
               <p className={'text-sm text-muted-foreground line-clamp-2'}>{singer.bio}</p>
-              <Link href={`/cantantes/${singer.id}`} className='text-blue-500'>
+              <Link href={`/cantantes/${singer.id}`} className={"text-blue-500"}>
                 Ver más info
               </Link>
               <Button className={'w-full'} onClick={() => setSinger(singer)}>

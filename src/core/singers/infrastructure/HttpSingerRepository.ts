@@ -1,9 +1,9 @@
 import { configuration } from '@/core/share/configuration'
-import { Singer, type SingerAPI } from '../domain/singer'
-import type { SingerRepository } from '../domain/singerRepository'
+import { Singer, type SingerAPI } from '@/core/singers/domain/singer'
+import type { SingerRepository } from '@/core/singers/domain/singerRepository'
 
 export class HttpSingerRepository implements SingerRepository {
-  private API_URL = `${configuration().BASE_URL}/singers'`
+  private API_URL = `${configuration().BASE_URL}/singers`
 
   async getAllSingers(): Promise<Singer[]> {
     const response = await fetch(`${this.API_URL}/all`)
@@ -26,7 +26,6 @@ export class HttpSingerRepository implements SingerRepository {
 
   async getSinger(id: string): Promise<Singer | null> {
     const response = await fetch(`${this.API_URL}/${id}`)
-    if (!response.ok) return null
 
     const singer: SingerAPI = await response.json()
     const date = new Date(singer.birth_date)
