@@ -1,7 +1,6 @@
 'use client'
 
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Vote } from 'lucide-react'
 import type { Singer } from '@/core/singers/domain/singer'
 import { useState } from 'react'
 import { Button } from '@/components/ui/button'
@@ -10,6 +9,7 @@ import { ImageSrc } from '@/components/Image'
 import { useGetAllSingers } from './hooks/useGetAllSingers'
 import { StatusHandler } from '@/components/StateHanlder'
 import Link from 'next/link'
+import { Icon } from '@/components/Icon/Icon'
 
 const Cantantes = () => {
   const { data: singers, isPending, error } = useGetAllSingers()
@@ -20,7 +20,7 @@ const Cantantes = () => {
       <div className={'grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4'}>
         <VoteModal singer={singer} setSinger={setSinger} />
 
-        {singers?.map(singer => (
+        {(singers ?? []).map(singer => (
           <Card key={singer.id} className={'shadow-md rounded-xl overflow-hidden'}>
             <CardHeader className={'flex items-center gap-4'}>
               <ImageSrc
@@ -34,12 +34,14 @@ const Cantantes = () => {
               </CardTitle>
             </CardHeader>
             <CardContent className={'grid gap-4'}>
-              <p className={'text-sm text-muted-foreground line-clamp-2'}>{singer.bio}</p>
-              <Link href={`/cantantes/${singer.id}`} className={'text-blue-500'}>
-                Ver más info
-              </Link>
+              <p className={'text-sm text-muted-foreground line-clamp-3'}>
+                {singer.bio}{' '}
+                <Link href={`/cantantes/${singer.id}`} className={'text-blue-500 inline'}>
+                  Ver más
+                </Link>
+              </p>
               <Button className={'w-full'} onClick={() => setSinger(singer)}>
-                <Vote /> Votar
+                <Icon name={'Vote'} /> Votar
               </Button>
             </CardContent>
           </Card>
