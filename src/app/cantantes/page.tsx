@@ -23,11 +23,7 @@ const Cantantes = () => {
         {(singers ?? []).map(singer => (
           <Card key={singer.id} className={'shadow-md rounded-xl overflow-hidden'}>
             <CardHeader className={'flex items-center gap-4'}>
-              <ImageSrc
-                src={singer?.photo ?? ''}
-                alt={singer?.firstName ?? ''}
-                className={'w-full h-auto rounded-lg'}
-              />
+              <ImageSrc src={singer.photo} alt={singer.firstName} className={'w-full h-auto rounded-lg'} />
 
               <CardTitle className={'text-lg font-semibold'}>
                 {singer.firstName} {singer.lastName}

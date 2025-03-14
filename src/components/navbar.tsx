@@ -33,7 +33,7 @@ export const Nav = () => {
         <button
           onClick={() => setIsOpen(!isOpen)}
           className={'md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800'}>
-          {isOpen ? <Icon name={'X'} className={'h-6 w-6'} /> : <Icon name={'Menu'} className={'h-6 w-6'} />}
+          <Icon name={isOpen ? 'X' : 'Menu'} className={'h-6 w-6'} />
         </button>
       </div>
 
