@@ -5,7 +5,6 @@ import type { VoteRepository } from '@/core/votes/domain/voteRepository'
 export class HttpVoteRepository implements VoteRepository {
   private API_URL = `${configuration().BASE_URL}/votes`
 
-  //@typescript-eslint/no-unused-vars
   async getVotesByGala(galaId: string): Promise<SingerVote[]> {
     // const response = await fetch(`${this.API_URL}/votes-by-gala/${galaId}`, {
     //   headers: {
