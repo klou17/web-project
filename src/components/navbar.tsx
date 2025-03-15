@@ -1,8 +1,8 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Vote, Menu, X } from 'lucide-react'
 import Link from 'next/link'
+import { Icon } from '@/components/Icon/Icon'
 
 export const Nav = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -21,7 +21,7 @@ export const Nav = () => {
     <div className={'border-b w-full px-4 sm:px-6'}>
       <div className={'flex items-center justify-between mx-auto max-w-4xl h-16'}>
         <Link href={'/'} className={'flex items-center gap-2'}>
-          <Vote className={'h-6 w-6'} />
+          <Icon name={'Vote'} className={'h-6 w-6'} />
           <span className={'font-bold'}>Proyecto Web</span>
         </Link>
 
@@ -33,7 +33,7 @@ export const Nav = () => {
         <button
           onClick={() => setIsOpen(!isOpen)}
           className={'md:hidden p-2 rounded-md hover:bg-gray-200 dark:hover:bg-gray-800'}>
-          {isOpen ? <X className={'h-6 w-6'} /> : <Menu className={'h-6 w-6'} />}
+          <Icon name={isOpen ? 'X' : 'Menu'} className={'h-6 w-6'} />
         </button>
       </div>
 
