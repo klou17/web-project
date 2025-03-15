@@ -24,7 +24,7 @@ export const VoteModal = ({ singer, setSinger }: Props) => {
         setSinger(null)
         setIsSuccess(false)
       }}>
-      <DialogContent className={'grid grid-cols-2 gap-4 items-center'}>
+      <DialogContent className={'grid grid-cols-2 gap-4 items-center'} aria-describedby={undefined}>
         <ImageSrc src={singer.photo} alt={singer.firstName} className={'w-full h-auto rounded-lg'} />
 
         <div className={'grid gap-4 items-center content-center'}>
