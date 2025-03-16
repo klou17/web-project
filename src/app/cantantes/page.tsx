@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { Button } from '@/components/ui/button'
 import { VoteModal } from '@/app/cantantes/_components/VoteModal'
 import { ImageSrc } from '@/components/Image'
-import { useGetAllSingers } from '@/app/cantantes/hooks/useGetAllSingers'
+import { useGetAllSingers } from '@/app/cantantes/_hooks/useGetAllSingers'
 import { StatusHandler } from '@/components/StateHanlder'
 import Link from 'next/link'
 import { Icon } from '@/components/Icon/Icon'
@@ -22,8 +22,8 @@ const Cantantes = () => {
 
         {(singers ?? []).map(singer => (
           <Card key={singer.id} className={'shadow-md rounded-xl overflow-hidden'}>
-            <CardHeader className={'flex items-center gap-4'}>
-              <ImageSrc src={singer.photo} alt={singer.firstName} className={'w-full h-auto rounded-lg'} />
+            <CardHeader className={'flex flex-col items-center gap-4'}>
+              <ImageSrc src={singer.photo} alt={singer.firstName} className={'w-300 h-auto rounded-lg'} />
 
               <CardTitle className={'text-lg font-semibold'}>
                 {singer.firstName} {singer.lastName}
