@@ -1,7 +1,9 @@
 import { render } from '@testing-library/react'
 import Cantantes from '@/app/cantantes/page'
+import Home from '@/app/page'
 
 const routeComponents: Record<string, React.FC> = {
+  '/': Home,
   '/cantantes': Cantantes,
 }
 
