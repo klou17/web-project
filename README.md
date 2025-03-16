@@ -1,6 +1,19 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Singers Voting System
 
-## Getting Started
+This is a [Next.js](https://nextjs.org) project that implements a **singer voting system** using a **hexagonal architecture** to ensure modularity, maintainability, and testability.
+
+## 🏗️ Hexagonal Architecture
+
+This project follows the **Hexagonal Architecture**, which separates business logic from external concerns like APIs, databases, and UI. The structure consists of:
+
+- **Domain:** Business logic and entities.
+- **Use Cases:** Application services that implement domain logic.
+- **Infrastructure:** Implementations of repositories, API clients, and external dependencies.
+- **Presentation:** UI components, pages, and hooks.
+
+This separation makes the application **flexible**, **testable**, and **scalable**.
+
+## 🚀 Getting Started
 
 First, run the development server:
 
@@ -14,8 +27,26 @@ pnpm dev
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🛠️ Technologies Used
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework:** [Next.js](https://nextjs.org) (App Router & Server Components)
+- **UI Components:** [shadcn/ui](https://ui.shadcn.com/)
+- **State Management:** React Hooks
+- **Styling:** Tailwind CSS
+- **API Calls:** Fetch with custom repositories
+- **Testing:** [Jest](https://jestjs.io/)
+- **Linting & Formatting:** ESLint & Prettier
+
+## 🧪 Testing
+
+We use **Jest** and **React Testing Library** to test UI components and business logic.
+
+Run tests with:
+
+```bash
+npm run test
+# or
+yarn test
+```
