@@ -1,10 +1,10 @@
 import '@testing-library/jest-dom'
 import { renderRouter } from '@/tests/renderRouter'
 import { fireEvent, screen, waitFor } from '@testing-library/react'
-import { useGetAllSingers } from '@/app/cantantes/hooks/useGetAllSingers'
+import { useGetAllSingers } from '@/app/cantantes/_hooks/useGetAllSingers'
 import type { Singer } from '@/core/singers/domain/singer'
 
-jest.mock('@/app/cantantes/hooks/useGetAllSingers')
+jest.mock('@/app/cantantes/_hooks/useGetAllSingers')
 
 describe('Singers tests', () => {
   it('should display loading indicator when fetching singers', () => {
@@ -19,7 +19,19 @@ describe('Singers tests', () => {
 
     expect(screen.getByText('Cargando...')).toBeInTheDocument()
   })
-  it('should display error message when there is an error fetching singers', async () => {
+  it('should display error message when there is an error fetching singers', () => {
+    const mock = useGetAllSingers as jest.Mock
+    mock.mockReturnValue({
+      data: null,
+      isPending: false,
+      error: 'Error 404',
+    })
+
+    renderRouter('/cantantes')
+
+    expect(screen.getByText('Algo salió mal... Vuelve a intentarlo')).toBeInTheDocument()
+  })
+  it('should display the list of singers when data is fetched', async () => {
     const mockSingers: Singer[] = [
       {
         id: '1',

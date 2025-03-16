@@ -1,8 +1,6 @@
-// import { Singer } from '@/core/singers/domain/singer'
-
 'use client'
 import { StatusHandler } from '@/components/StateHanlder'
-import { VotesByGalaPieChart } from './_home/components/VotesByGalaPieChart'
+import { VotesByGalaPieChart } from './_home/_components/VotesByGalaPieChart'
 import { useGetVotesByGala } from './_home/hooks/useGetVotesByGala'
 import { useState } from 'react'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
