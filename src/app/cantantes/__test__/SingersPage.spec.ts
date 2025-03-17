@@ -3,11 +3,8 @@ import { renderRouter } from '@/tests/renderRouter'
 import { act, fireEvent, screen, waitFor } from '@testing-library/react'
 import { useGetAllSingers } from '@/app/cantantes/_hooks/useGetAllSingers'
 import type { Singer } from '@/core/singers/domain/singer'
-import { VoteHook } from '@/app/cantantes/_hooks/useVoteSinger'
-import { setTimeout } from 'node:timers'
 
 jest.mock('@/app/cantantes/_hooks/useGetAllSingers')
-jest.mock
 
 describe('Singers tests', () => {
   it('should display loading indicator when fetching singers', () => {

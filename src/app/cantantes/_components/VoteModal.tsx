@@ -49,7 +49,7 @@ export const VoteModal = ({ singer, setSinger }: Props) => {
 
         <div className={'grid items-center content-center'}>
           {!isLogged ? (
-            <div className={"grid items-center gap-5 w-fill"}>
+            <div className={'grid items-center gap-5 w-fill'}>
               <Icon name={'BadgeAlert'} className={'w-full h-15'} color={'orange'} />
               <DialogHeader>
                 <DialogTitle>Debe iniciar sesión para poder votar</DialogTitle>
