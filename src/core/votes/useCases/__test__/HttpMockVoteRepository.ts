@@ -25,4 +25,7 @@ export class HttpMockVoteRepository implements VoteRepository {
       },
     ]
   }
+  public voteSinger(galaId: string, singerId: string, bearerToken: string): Promise<void> {
+    return new Promise(() => {})
+  }
 }
