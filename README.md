@@ -26,7 +26,11 @@ pnpm dev
 # or
 bun dev
 ```
-
+Or with with Docker
+```bash
+docker build -t front
+docker run front
+```
 Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
 
 ## 🛠️ Technologies Used
