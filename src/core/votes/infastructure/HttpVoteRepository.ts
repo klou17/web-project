@@ -20,4 +20,27 @@ export class HttpVoteRepository implements VoteRepository {
       )
     })
   }
+
+  async voteSinger(galaId: string, singerId: string, bearerToken: string): Promise<void> {
+    const headers = new Headers()
+    headers.append('Content-Type', 'application/json')
+    headers.append('Authorization', 'Bearer ' + bearerToken)
+
+    const rawBody = JSON.stringify({
+      singerId: singerId,
+      galaId: galaId,
+    })
+
+    const requestOptions: RequestInit = {
+      method: 'POST',
+      headers: headers,
+      body: rawBody,
+    }
+
+    const response = await fetch(`${this.API_URL}/vote`, requestOptions)
+
+    if (!response.ok) {
+      throw Symbol('Something went wrong!')
+    }
+  }
 }

@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom'
 import { renderRouter } from '@/tests/renderRouter'
-import { fireEvent, screen, waitFor } from '@testing-library/react'
+import { act, fireEvent, screen, waitFor } from '@testing-library/react'
 import { useGetAllSingers } from '@/app/cantantes/_hooks/useGetAllSingers'
 import type { Singer } from '@/core/singers/domain/singer'
 
@@ -58,7 +58,7 @@ describe('Singers tests', () => {
       expect(screen.getByText('A great singer.')).toBeInTheDocument()
     })
   })
-  it('should open vote modal when VoteButton is clicked', async () => {
+  it('should open vote modal requesting to sign in by default', async () => {
     const mockSingers: Singer[] = [
       {
         id: '1',
@@ -82,6 +82,41 @@ describe('Singers tests', () => {
 
     const voteButton = screen.getByText('Votar')
     fireEvent.click(voteButton)
+
+    expect(screen.getByText('Debe iniciar sesión para poder votar')).toBeInTheDocument()
+  })
+
+  it('should open vote modal allowing to vote if logged in', async () => {
+    const mockSingers: Singer[] = [
+      {
+        id: '1',
+        firstName: 'John',
+        lastName: 'Doe',
+        stageName: 'J.D.',
+        photo: 'http://example.com/photo.jpg',
+        bio: 'A great singer.',
+        birthDate: new Date('1990-01-01'),
+        active: true,
+      },
+    ]
+    Object.defineProperty(window.document, 'cookie', {
+      writable: true,
+      value: 'authToken=fakeLogin;',
+    })
+
+    const mock = useGetAllSingers as jest.Mock
+    mock.mockReturnValue({
+      data: mockSingers,
+      isPending: false,
+      error: null,
+    })
+
+    renderRouter('/cantantes')
+
+    act(() => {
+      const voteButton = screen.getByText('Votar')
+      fireEvent.click(voteButton)
+    })
 
     expect(screen.getByText('¿Confirmas tu voto para John?')).toBeInTheDocument()
   })
