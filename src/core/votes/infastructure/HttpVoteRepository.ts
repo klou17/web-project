@@ -26,7 +26,7 @@ export class HttpVoteRepository implements VoteRepository {
     headers.append('Content-Type', 'application/json')
     headers.append('Authorization', 'Bearer ' + bearerToken)
     headers.append('apiKey', apiKey)
-    
+
     const rawBody = JSON.stringify({
       singerId: singerId,
       galaId: galaId,
