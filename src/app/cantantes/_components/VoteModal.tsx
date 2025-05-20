@@ -6,7 +6,7 @@ import { ImageSrc } from '@/components/Image'
 import { useState } from 'react'
 import { DialogDescription } from '@radix-ui/react-dialog'
 import { Icon } from '@/components/Icon/Icon'
-import { getAuthToken, voteSinger } from '@/app/cantantes/_hooks/useVoteSinger'
+import { getAuthToken, voteSinger, getApiKey } from '@/app/cantantes/_hooks/useVoteSinger'
 import Link from 'next/link'
 import { StatusHandler } from '@/components/StateHanlder'
 
@@ -19,6 +19,7 @@ export const VoteModal = ({ singer, setSinger }: Props) => {
   const [isSuccess, setIsSuccess] = useState<boolean | undefined>(undefined)
 
   const authToken = getAuthToken()
+  const apiKey = getApiKey(document.cookie)
   const isLogged = authToken !== undefined
 
   if (!singer) return <Slot />
@@ -29,7 +30,7 @@ export const VoteModal = ({ singer, setSinger }: Props) => {
     const singerId = singer.id
 
     isPending = true
-    voteSinger(galaId, singerId, authToken!)
+    voteSinger(galaId, singerId, authToken!, apiKey!)
       .then(() => setIsSuccess(true))
       .catch(() => {
         setIsSuccess(false)

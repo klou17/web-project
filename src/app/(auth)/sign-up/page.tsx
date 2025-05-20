@@ -17,7 +17,9 @@ const SignUp = () => {
     const { name, email, password } = form.getValues()
     signUp(name, email, password)
       .then(() => {
-        signIn(email, password).then(() => location.assign('/cantantes'))
+        signIn(email, password).then(() => {
+          location.assign('/cantantes')
+        })
       })
       .catch(() => {
         form.setError('email', { message: 'El email ya está en uso' }, { shouldFocus: false })
