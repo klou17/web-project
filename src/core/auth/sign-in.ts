@@ -27,6 +27,7 @@ export async function signIn(email: string, password: string): Promise<void> {
       expirationDate.setTime(passTime)
 
       document.cookie = 'authToken=' + resBody.token + ';expires=' + expirationDate.toUTCString()
+      document.cookie = 'apiKey=' + resBody.apiKey + ';expires=' + expirationDate.toUTCString()
     })
   })
 }

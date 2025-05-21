@@ -21,10 +21,11 @@ export class HttpVoteRepository implements VoteRepository {
     })
   }
 
-  async voteSinger(galaId: string, singerId: string, bearerToken: string): Promise<void> {
+  async voteSinger(galaId: string, singerId: string, bearerToken: string, apiKey: string): Promise<void> {
     const headers = new Headers()
     headers.append('Content-Type', 'application/json')
     headers.append('Authorization', 'Bearer ' + bearerToken)
+    headers.append('apiKey', apiKey)
 
     const rawBody = JSON.stringify({
       singerId: singerId,

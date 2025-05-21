@@ -13,3 +13,14 @@ export function getAuthCookie(): string | undefined {
   }
   return undefined
 }
+
+export function getCookieValue(cookieHeader: string | undefined, key: string): string | null {
+  if (!cookieHeader) return null
+
+  const cookies = cookieHeader.split(';')
+  for (const cookie of cookies) {
+    const [name, value] = cookie.trim().split('=')
+    if (name === key) return decodeURIComponent(value)
+  }
+  return null
+}
